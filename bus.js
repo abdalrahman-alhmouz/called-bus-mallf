@@ -73,9 +73,9 @@ function randomImage() {
   secondImg.alt = allProducts[secondRandom].name;
   thirdImg.alt = allProducts[thirdRandom].name;
 
-  //allProducts[firstRandom].views++;
-  //allProducts[secondRandom].views++;
-  //allProducts[thirdRandom].views++;
+  allProducts[firstRandom].views++;
+  allProducts[secondRandom].views++;
+  allProducts[thirdRandom].views++;
 
   totalClicks++;
 
@@ -84,13 +84,13 @@ function randomImage() {
     secondImg.removeEventListener('click', handleImageClick);
     thirdImg.removeEventListener('click', handleImageClick);
 
+    
+
     myChart.addEventListener('event', alertUser) 
 function alertUser(event) {
-
-  
     for(var i =0 ;i<24;i++){
       
-   var ctx = document.getElementById("colors-container")
+   var ctx = document.getElementById("main-content")
    
   var tablee=document.createElement('table')
   ctx.appendChild(tablee)
@@ -100,7 +100,7 @@ function alertUser(event) {
   rowOneT.textContent= allProducts[i].name+ ' chosing ' + allProducts[i].votes +' time '
     rowOne.appendChild(rowOneT)
     }}
-    alertUser()
+   //alertUser()
     displayResults(); 
 
     
@@ -135,3 +135,19 @@ randomImage();
 firstImg.addEventListener('click', handleImageClick);
 secondImg.addEventListener('click', handleImageClick);
 thirdImg.addEventListener('click', handleImageClick);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "your result";
+  for(var i =0 ;i<24;i++){
+      
+    var ctx = document.getElementById("main-content")
+    
+   var tablee=document.createElement('table')
+   ctx.appendChild(tablee)
+   var rowOne =document.createElement('tr')
+   tablee.appendChild(rowOne)
+   var rowOneT =document.createElement('th')
+   rowOneT.textContent= allProducts[i].name+ ' chosing ' + allProducts[i].votes +' time and viwes a ' +allProducts[i].views +" time"
+     rowOne.appendChild(rowOneT)
+     }
+}
